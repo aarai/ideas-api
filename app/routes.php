@@ -14,6 +14,8 @@ Route::get('/', array('uses'=>'HomeController@index'));
 
 Route::get('/all', array('uses'=>'IdeaController@index'));
 
+Route::get('/show', array('uses'=>'IdeaController@show'));
+
 Route::post('/create', array('uses'=>'IdeaController@create'));
 
 Route::post('/update', array('uses'=>'IdeaController@update'));

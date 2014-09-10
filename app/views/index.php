@@ -19,8 +19,10 @@
         <![endif]-->
         <div data-ng-controller="IdeaCtrl">
           <div data-ng-repeat="idea in ideas">
+            <p>{{idea.id}}</p>
             <p>{{idea.author}}</p>
             <p>{{idea.comment}}</p>
+            <button data-ng-click="showIdea(idea.id)">click here</button>
           </div>
         </div>
 
