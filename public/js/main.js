@@ -1,9 +1,17 @@
 
-var IdeasApp = angular.module('IdeasApp', []);
+var IdeasApp = angular.module('IdeasApp', ['ngRoute']);
 
-IdeasApp.config(['$httpProvider',function($httpProvider){
-  $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-}]);
+IdeasApp.config(['$httpProvider','$routeProvider',
+        function($httpProvider,$routeProvider){
+            $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+            $routeProvider.
+              when('/',{
+                   templateUrl: 'app/views/home.html',
+                   controller:'IdeaCtrl'
+              })
+              .otherwise({templateUrl:'app/views/home.html'});
+        }
+]);
 
 IdeasApp.service('IdeasSrvc', function($http,$q) {
 
