@@ -18,11 +18,14 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div data-ng-controller="IdeaCtrl">
-          <div data-ng-repeat="idea in ideas">
-            <p>{{idea.id}}</p>
-            <p>{{idea.author}}</p>
-            <p>{{idea.comment}}</p>
-            <button data-ng-click="showIdea(idea.id)">click here</button>
+          <div data-ng-init="showAllIdeas()">
+            <div data-ng-repeat="idea in ideas">
+              <p>{{idea.id}}</p>
+              <p>{{idea.author}}</p>
+              <p>{{idea.comment}}</p>
+              <button data-ng-click="showIdea(idea.id)">show</button>
+              <button data-ng-click="deleteIdea(idea.id)">delete</button>
+            </div>
           </div>
         </div>
 

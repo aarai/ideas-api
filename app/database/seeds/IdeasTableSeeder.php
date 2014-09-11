@@ -11,5 +11,29 @@ class IdeasTableSeeder extends Seeder {
       'votes' => 0,
       'IsCrossedOut'=>false
     ));
+    Idea::create(array(
+      'comment'=> 'I\'m gonna get you sucka',
+      'author' => 'Rai',
+      'votes' => 0,
+      'IsCrossedOut'=>false
+    ));
+    Idea::create(array(
+      'comment'=> 'I\'m gonna get you sucka',
+      'author' => 'Rai',
+      'votes' => 0,
+      'IsCrossedOut'=>false
+    ));
+    Idea::create(array(
+      'comment'=> 'I\'m gonna get you sucka',
+      'author' => 'Rai',
+      'votes' => 0,
+      'IsCrossedOut'=>false
+    ));
+    Idea::create(array(
+      'comment'=> 'I\'m gonna get you sucka',
+      'author' => 'Rai',
+      'votes' => 0,
+      'IsCrossedOut'=>false
+    ));
 	}
 }

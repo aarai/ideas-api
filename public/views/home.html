@@ -1,0 +1,9 @@
+<div data-ng-init="showAllIdeas()">
+  <div data-ng-repeat="idea in ideas">
+    <p>{{idea.id}}</p>
+    <p>{{idea.author}}</p>
+    <p>{{idea.comment}}</p>
+    <button data-ng-click="showIdea(idea.id)">show</button>
+    <button data-ng-click="deleteIdea(idea.id)">delete</button>
+  </div>
+</div>
