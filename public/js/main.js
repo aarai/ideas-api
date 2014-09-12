@@ -5,8 +5,16 @@ IdeasApp.config(['$httpProvider','$routeProvider',
         function($httpProvider,$routeProvider){
             $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
             $routeProvider.
-              when('/',{
+                when('/',{
                    templateUrl: 'app/views/home.html',
+                   controller:'IdeaCtrl'
+              }).
+                when('/show/:id',{
+                   templateUrl: 'app/views/show.html',
+                   controller:'IdeaCtrl'
+              }).
+                when('/edit/:id',{
+                   templateUrl: 'app/views/edit.html',
                    controller:'IdeaCtrl'
               })
               .otherwise({templateUrl:'app/views/home.html'});
@@ -49,7 +57,7 @@ IdeasApp.service('IdeasSrvc', function($http,$q) {
   }
 });
 
-IdeasApp.controller('IdeaCtrl', ['$scope','IdeasSrvc', function($scope,IdeasSrvc) {
+IdeasApp.controller('IdeaCtrl', ['$scope','$routeParams','IdeasSrvc', function($scope,$routeParams,IdeasSrvc) {
 
   $scope.showAllIdeas = function(){
     IdeasSrvc.getIdeas(function(data){
@@ -57,7 +65,8 @@ IdeasApp.controller('IdeaCtrl', ['$scope','IdeasSrvc', function($scope,IdeasSrvc
     });
   }
 
-  $scope.showIdea = function(id) {
+  $scope.showIdea = function() {
+    var id = $routeParams.id;
     IdeasSrvc.showIdea(id,function(data){
       $scope.ideas = [];
       $scope.ideas.push(data);
@@ -68,6 +77,10 @@ IdeasApp.controller('IdeaCtrl', ['$scope','IdeasSrvc', function($scope,IdeasSrvc
     IdeasSrvc.deleteIdea(id,function(){
       $scope.showAllIdeas();
     });
+  }
+
+  $scope.crossedOut = function(bool){
+    return bool === '0' ? false : true;
   }
 
 }]);

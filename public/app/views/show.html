@@ -1,10 +1,10 @@
-  <div data-ng-init="showAllIdeas()">
+  <div data-ng-init="showIdea()">
     <div data-ng-repeat="idea in ideas">
       <p>{{idea.author}}</p>
       <p>{{idea.comment}}</p>
       <p>{{idea.votes}}</p>
       <p>{{crossedOut(idea.isCrossedOut)}}</p>
-      <a href="#/show/{{idea.id}}">show</a>
-      <a href="#/edit/{{idea.id}}">edit</a>
+      <a href="#/">back</a>
+      <button data-ng-click="deleteIdea(idea.id)">delete</button>
     </div>
   </div>
