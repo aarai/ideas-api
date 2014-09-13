@@ -1,10 +1,11 @@
   <div data-ng-init="showIdea()">
     <div data-ng-repeat="idea in ideas">
-      <input type="text" value="{{idea.author}}" />
-      <input type="text" value="{{idea.comment}}" />
-      <input type="text" value="{{idea.votes}}" />
-      <input type="checkbox" data-ng-checked="{{crossedOut(idea.isCrossedOut)}}" />
-      <a href="#/">back</a>
-      <button data-ng-click="saveIdea(idea.id)">delete</button>
+      <input type="hidden" data-ng-model="idea.id" value="{{idea.id}}" />
+      <input type="text" data-ng-model="idea.author" value="{{idea.author}}" />
+      <input type="text" data-ng-model="idea.comment" value="{{idea.comment}}" />
+      <input type="text" data-ng-model="idea.votes" value="{{idea.votes}}" />
+      <input type="checkbox" data-ng-model="idea.isCrossedOut" data-ng-checked="{{crossedOut(idea.isCrossedOut)}}" />
+      <a href="#/show/{{idea.id}}">show</a>
+      <button data-ng-click="formPost(idea)">post</button>
     </div>
   </div>

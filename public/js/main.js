@@ -1,9 +1,12 @@
 
 var IdeasApp = angular.module('IdeasApp', ['ngRoute']);
 
-IdeasApp.config(['$httpProvider','$routeProvider',
-        function($httpProvider,$routeProvider){
+IdeasApp.config(['$httpProvider','$routeProvider','$locationProvider',
+        function($httpProvider,$routeProvider,$locationProvider){
             $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+
+            //$locationProvider.html5Mode(true);
+
             $routeProvider.
                 when('/',{
                    templateUrl: 'app/views/home.html',
@@ -55,6 +58,22 @@ IdeasApp.service('IdeasSrvc', function($http,$q) {
       console.log(status);
     });
   }
+
+  this.updateIdea = function(idea,cb) {
+    $http({method:'post',
+           url:'/update',
+           data: 'id=' + idea.id +
+                 '&comment=' + idea.comment +
+                 '&author=' + idea.author +
+                 '&votes=' + idea.votes +
+                 '&isCrossedOut=' + idea.isCrossedOut }).
+      success(function(data, status, headers, config){
+      cb(data);
+    }).
+    error(function(data, status, headers, config){
+      console.log(status);
+    });
+  }
 });
 
 IdeasApp.controller('IdeaCtrl', ['$scope','$routeParams','IdeasSrvc', function($scope,$routeParams,IdeasSrvc) {
@@ -76,6 +95,12 @@ IdeasApp.controller('IdeaCtrl', ['$scope','$routeParams','IdeasSrvc', function($
   $scope.deleteIdea = function(id) {
     IdeasSrvc.deleteIdea(id,function(){
       $scope.showAllIdeas();
+    });
+  }
+
+  $scope.formPost = function(idea){
+    IdeasSrvc.updateIdea(idea, function(){
+      window.location = "#/";
     });
   }
 
