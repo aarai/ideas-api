@@ -12,6 +12,10 @@ IdeasApp.config(['$httpProvider','$routeProvider','$locationProvider',
                    templateUrl: 'app/views/home.html',
                    controller:'IdeaCtrl'
               }).
+                when('/create',{
+                   templateUrl: 'app/views/create.html',
+                   controller:'IdeaCtrl'
+              }).
                 when('/show/:id',{
                    templateUrl: 'app/views/show.html',
                    controller:'IdeaCtrl'
@@ -46,6 +50,22 @@ IdeasApp.service('IdeasSrvc', function($http,$q) {
       console.log(status);
     });
   },
+
+  this.createIdea = function(idea,cb) {
+    $http({method:'post',
+           url:'/create',
+           data: 'id=' + idea.id +
+                 '&comment=' + idea.comment +
+                 '&author=' + idea.author +
+                 '&votes=' + idea.votes +
+                 '&isCrossedOut=' + idea.isCrossedOut }).
+      success(function(data, status, headers, config){
+      cb(data);
+    }).
+    error(function(data, status, headers, config){
+      console.log(status);
+    });
+  }
 
   this.deleteIdea = function(id,cb) {
     $http({method:'post',
@@ -84,11 +104,19 @@ IdeasApp.controller('IdeaCtrl', ['$scope','$routeParams','IdeasSrvc', function($
     });
   }
 
+  // TODO: Add validation checks to make sure values are not null
+  $scope.createIdea = function(idea){
+    IdeasSrvc.createIdea(idea, function(){
+       window.location = "#/";
+    });
+  }
+
   $scope.showIdea = function() {
     var id = $routeParams.id;
     IdeasSrvc.showIdea(id,function(data){
       $scope.ideas = [];
       $scope.ideas.push(data);
+
     });
   }
 
@@ -98,7 +126,8 @@ IdeasApp.controller('IdeaCtrl', ['$scope','$routeParams','IdeasSrvc', function($
     });
   }
 
-  $scope.formPost = function(idea){
+  // TODO: Add validation checks to make sure values are not null
+  $scope.updateIdea = function(idea){
     IdeasSrvc.updateIdea(idea, function(){
       window.location = "#/";
     });

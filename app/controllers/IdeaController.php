@@ -25,7 +25,7 @@ class IdeaController extends \BaseController {
     $idea->comment = Input::get('comment');
     $idea->author = Input::get('author');
     $idea->votes = Input::get('votes');
-    $idea->isCrossedOut = Input::get('isCrossedOut');
+    $idea->isCrossedOut = Input::get('isCrossedOut') == true ? "1": "0";
     $idea->save();
     $input = Input::all();
     return Response::json('success');
@@ -58,7 +58,7 @@ class IdeaController extends \BaseController {
     $idea->comment = Input::get('comment');
     $idea->author = Input::get('author');
     $idea->votes = Input::get('votes');
-    $idea->isCrossedOut = Input::get('isCrossedOut');
+    $idea->isCrossedOut = Input::get('isCrossedOut') == true ? "1": "0";
     $idea->save();
     return Response::json('success');
 	}
