@@ -17,8 +17,7 @@ IdeasApp.controller('IdeaCtrl', ['$scope','$routeParams','IdeasSrvc', function($
   $scope.showIdea = function() {
     var id = $routeParams.id;
     IdeasSrvc.showIdea(id,function(data){
-      $scope.ideas = [];
-      $scope.ideas.push(data);
+      $scope.idea = data;
 
     });
   }
@@ -36,8 +35,8 @@ IdeasApp.controller('IdeaCtrl', ['$scope','$routeParams','IdeasSrvc', function($
     });
   }
 
-  $scope.crossedOut = function(bool){
-    return bool === '0' ? false : true;
+  $scope.isChecked = function(val) {
+    return val === "1" ? true : false;
   }
 
 }]);

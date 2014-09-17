@@ -3,7 +3,7 @@
       <p>{{idea.author}}</p>
       <p>{{idea.comment}}</p>
       <p>{{idea.votes}}</p>
-      <p>{{crossedOut(idea.isCrossedOut)}}</p>
+      <p>{{isChecked(idea.isCrossedOut)}}</p>
       <a href="#/">back</a>
       <button data-ng-click="deleteIdea(idea.id)">delete</button>
       <a href="#/edit/{{idea.id}}">edit</a>

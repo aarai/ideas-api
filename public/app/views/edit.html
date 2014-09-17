@@ -1,13 +1,11 @@
 <form action="">
   <div data-ng-init="showIdea()">
-    <div data-ng-repeat="idea in ideas">
       <input type="hidden" data-ng-model="idea.id" value="{{idea.id}}" />
       <input type="text" data-ng-model="idea.author" value="{{idea.author}}" />
       <input type="text" data-ng-model="idea.comment" value="{{idea.comment}}" />
       <input type="text" data-ng-model="idea.votes" value="{{idea.votes}}" />
-      <input type="checkbox" data-ng-model="idea.isCrossedOut" data-ng-checked="crossedOut(idea.isCrossedOut)" />
+      <input type="checkbox" data-ng-model="idea.isCrossedOut" data-ng-checked="isChecked(idea.isCrossedOut)"/>
       <a href="#/show/{{idea.id}}">show</a>
       <button data-ng-click="updateIdea(idea)">post</button>
-    </div>
   </div>
 <form>
