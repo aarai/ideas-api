@@ -23,7 +23,9 @@
         <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
         <script src="js/angular.min.js"></script>
         <script src="js/angular-route.min.js"></script>
-        <script src="js/main.js"></script>
+        <script src="app/main.js"></script>
+        <script src="app/controllers/IdeaCtrl.js"></script>
+        <script src="app/services/IdeaSrvc.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
