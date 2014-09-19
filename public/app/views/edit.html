@@ -5,7 +5,7 @@
       <input type="text" data-ng-model="idea.comment" value="{{idea.comment}}" />
       <input type="text" data-ng-model="idea.votes" value="{{idea.votes}}" />
       <input type="checkbox" data-ng-model="idea.isCrossedOut" data-ng-checked="isChecked(idea.isCrossedOut)"/>
-      <a href="#/show/{{idea.id}}">show</a>
-      <button data-ng-click="updateIdea(idea)">post</button>
+      <a class="btn btn-default" href="#/show/{{idea.id}}">show</a>
+      <button class="btn btn-default" data-ng-click="updateIdea(idea)">post</button>
   </div>
 <form>

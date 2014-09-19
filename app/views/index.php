@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
-
+        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/styles.css">
         <script src="js/modernizr-2.8.3.min.js"></script>
@@ -23,6 +23,7 @@
         <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
         <script src="js/angular.min.js"></script>
         <script src="js/angular-route.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
         <script src="app/main.js"></script>
         <script src="app/controllers/IdeaCtrl.js"></script>
         <script src="app/services/IdeaSrvc.js"></script>
