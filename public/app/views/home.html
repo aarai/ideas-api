@@ -1,11 +1,15 @@
   <div data-ng-init="showAllIdeas()">
-    <div data-ng-repeat="idea in ideas">
-      <p>{{idea.author}}</p>
-      <p>{{idea.comment}}</p>
-      <p>{{idea.votes}}</p>
-      <p>{{isChecked(idea.isCrossedOut)}}</p>
-      <a class="btn btn-default" href="#/show/{{idea.id}}">show</a>
-      <a class="btn btn-default" href="#/edit/{{idea.id}}">edit</a>
-    </div><br/><br/>
-    <a class="btn btn-default" href="#/create">Create New</a>
+    <div class="col-sm-4 margin-top" data-ng-repeat="idea in ideas">
+        <p>{{idea.author}}</p>
+        <p>{{idea.comment}}</p>
+        <p>{{idea.votes}}</p>
+        <p>{{isChecked(idea.isCrossedOut)}}</p>
+        <a class="btn btn-default" href="#/show/{{idea.id}}">show</a>
+        <a class="btn btn-default" href="#/edit/{{idea.id}}">edit</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-sm-4 margin-top">
+      <a class="btn btn-default" href="#/create">Create New</a>
+    </div>
   </div>
