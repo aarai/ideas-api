@@ -1,8 +1,8 @@
   <div data-ng-init="showIdea()">
-      <p>Author: {{idea.author}}</p>
-      <p>Idea: {{idea.comment}}</p>
-      <p>Votes: {{idea.votes}}</p>
-      <p>Crossed Out: {{isChecked(idea.isCrossedOut)}}</p>
+      <p><strong>Author:</strong> {{idea.author}}</p>
+      <p><strong>Idea:</strong> {{idea.comment}}</p>
+      <p><strong>Votes:</strong> {{idea.votes}}</p>
+      <p><strong>Crossed Out:</strong> {{isChecked(idea.isCrossedOut)}}</p>
       <a class="btn btn-default" href="#/">back</a>
       <button class="btn btn-default" data-ng-click="deleteIdea(idea.id)">delete</button>
       <a class="btn btn-default" href="#/edit/{{idea.id}}">edit</a>

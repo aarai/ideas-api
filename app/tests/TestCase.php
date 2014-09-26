@@ -18,7 +18,20 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
   public function testTrueIsTrue(){
 
-		$this->assertTrue(false);
+		$this->assertTrue(true);
   }
 
+   public function showRoute()
+	{
+		$crawler = $this->client->request('GET', '/show/12');
+
+		$this->assertTrue($this->client->getResponse()->isOk());
+	}
+
+	public function allRoute()
+	{
+		$crawler = $this->client->request('GET', '/all');
+
+		$this->assertTrue($this->client->getResponse()->isFalse());
+	}
 }

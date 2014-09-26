@@ -1,8 +1,8 @@
   <div data-ng-init="showAllIdeas()">
     <div class="col-sm-4 margin-top" data-ng-repeat="idea in ideas">
-        <p data-ng-class="{'stike': idea.isCrossedOut == 1}">Author: {{idea.author}}</p>
-        <p data-ng-class="{'stike': idea.isCrossedOut == 1}">Idea: {{idea.comment}}</p>
-        <p data-ng-class="{'stike': idea.isCrossedOut == 1}">Votes: {{idea.votes}}</p>
+        <p data-ng-class="{'stike': idea.isCrossedOut == 1}"><strong>Author:</strong> {{idea.author}}</p>
+        <p data-ng-class="{'stike': idea.isCrossedOut == 1}"><strong>Idea:</strong> {{idea.comment}}</p>
+        <p data-ng-class="{'stike': idea.isCrossedOut == 1}"><strong>Votes:</strong> {{idea.votes}}</p>
         <a class="btn btn-default" href="#/show/{{idea.id}}">show</a>
         <a class="btn btn-default" href="#/edit/{{idea.id}}">edit</a>
     </div>
