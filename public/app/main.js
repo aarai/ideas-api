@@ -27,3 +27,5 @@ IdeasApp.config(['$httpProvider','$routeProvider','$locationProvider',
               .otherwise({templateUrl:'app/views/home.html'});
         }
 ]);
+
+console.log('angular app');
